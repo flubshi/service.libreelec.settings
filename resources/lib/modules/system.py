@@ -774,6 +774,7 @@ MaxRetentionSec=0
         oe.winOeMain.set_wizard_text(oe._(32304))
         oe.winOeMain.set_wizard_button_title(oe._(32308))
         oe.winOeMain.set_wizard_button_1(self.struct['ident']['settings']['hostname']['value'], self, 'wizard_set_hostname')
+        oe.winOeMain.set_wizard_button_2(self.struct['ident']['settings']['timezone']['value'], self, 'wizard_set_timezone')
 
     @log.log_function()
     def wizard_set_hostname(self):
@@ -794,3 +795,11 @@ MaxRetentionSec=0
             self.struct['ident']['settings']['hostname']['value'] = xbmcKeyboard.getText()
             self.set_hostname()
             oe.winOeMain.getControl(1401).setLabel(self.struct['ident']['settings']['hostname']['value'])
+
+    @log.log_function()
+    def wizard_set_timezone(self):
+        cur_timezone = self.struct['ident']['settings']['timezone']['value']
+        self.set_timezone()
+        sel_timezone = self.struct['ident']['settings']['timezone']['value']
+        if sel_timezone != cur_timezone:
+            oe.winOeMain.getControl(1402).setLabel(self.struct['ident']['settings']['timezone']['value'])
