@@ -332,12 +332,10 @@ class bluetooth(modules.Module):
             selected_dbus_device = selected_item.getProperty('entry')
         for dbusDevice, device_properties in self.dbusDevices.items():
             dictProperties = {}
-            apName = ''
+            apName = device_properties.get('Name') or device_properties.get('Alias', '')
             dictProperties['entry'] = dbusDevice
             dictProperties['modul'] = self.__class__.__name__
             dictProperties['action'] = 'open_context_menu'
-            if 'Name' in device_properties:
-                apName = device_properties['Name']
             if not 'Icon' in device_properties:
                 dictProperties['Icon'] = 'default'
             for prop in self.properties:
