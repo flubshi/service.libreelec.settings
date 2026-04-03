@@ -759,6 +759,16 @@
                             <visible>String.IsEqual(ListItem.Property(Icon), audio-card)</visible>
                             <texture>bt-audio-card.png</texture>
                         </control>
+                        <!-- audio-headphones -->
+                        <control type="image">
+                            <left>40</left>
+                            <top>25</top>
+                            <width>48</width>
+                            <height>48</height>
+                            <aspectratio>keep</aspectratio>
+                            <visible>String.IsEqual(ListItem.Property(Icon), audio-headphones)</visible>
+                            <texture>bt-audio-headphones.png</texture>
+                        </control>
                         <!-- Camera Photo -->
                         <control type="image">
                             <left>40</left>
@@ -942,6 +952,16 @@
                             <aspectratio>keep</aspectratio>
                             <visible>String.IsEqual(ListItem.Property(Icon), audio-card)</visible>
                             <texture>bt-audio-card.png</texture>
+                        </control>
+                        <!-- audio-headphones -->
+                        <control type="image">
+                            <left>40</left>
+                            <top>25</top>
+                            <width>48</width>
+                            <height>48</height>
+                            <aspectratio>keep</aspectratio>
+                            <visible>String.IsEqual(ListItem.Property(Icon), audio-headphones)</visible>
+                            <texture>bt-audio-headphones.png</texture>
                         </control>
                         <!-- Camera Photo -->
                         <control type="image">
