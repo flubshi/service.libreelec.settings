@@ -910,6 +910,20 @@
                             <visible>IntegerGreaterThan(ListItem.Property(Trusted), 0)</visible>
                             <texture>key.png</texture>
                         </control>
+                        <!-- Signal strength -->
+                        <control type="progress">
+                            <left>10</left>
+                            <top>80</top>
+                            <width>1236</width>
+                            <height>3</height>
+                            <info>ListItem.Property(Strength)</info>
+                            <visible>Integer.IsGreater(ListItem.Property(Strength), 0)</visible>
+                            <texturebg />
+                            <lefttexture />
+                            <righttexture />
+                            <overlaytexture />
+                            <midtexture colordiffuse="FF12B2E7" border="2">separator-grey.png</midtexture>
+                        </control>
                     </itemlayout>
                     <focusedlayout height="100">
                         <control type="image">
@@ -1104,6 +1118,20 @@
                             <visible>IntegerGreaterThan(ListItem.Property(Trusted), 0)</visible>
                             <texture>key.png</texture>
                         </control>
+                        <!-- Signal strength -->
+                        <control type="progress">
+                            <left>10</left>
+                            <top>80</top>
+                            <width>1236</width>
+                            <height>3</height>
+                            <info>ListItem.Property(Strength)</info>
+                            <visible>Integer.IsGreater(ListItem.Property(Strength), 0)</visible>
+                            <texturebg />
+                            <lefttexture />
+                            <righttexture />
+                            <overlaytexture />
+                            <midtexture colordiffuse="FF12B2E7" border="2">separator-grey.png</midtexture>
+                        </control> 
                     </focusedlayout>
                 </control>
             </control>

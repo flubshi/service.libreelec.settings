@@ -283,6 +283,18 @@ class bluetooth(modules.Module):
             self.discovery_thread.start()
 
     @log.log_function()
+    def rssi_to_percentage(self, rssi):
+        min_rssi = -100  # Worst possible signal
+        max_rssi = -30    # Best possible signal
+        if rssi <= min_rssi:
+            return 0
+        elif rssi >= max_rssi:
+            return 100
+        ratio = (rssi - min_rssi) / (max_rssi - min_rssi)
+
+        return round((ratio ** 1.8) * 100)
+
+    @log.log_function()
     def discover_devices(self):
         if not hasattr(oe, 'winOeMain'):
             return
@@ -340,6 +352,9 @@ class bluetooth(modules.Module):
                 apName = device_properties['Name']
             if not 'Icon' in device_properties:
                 dictProperties['Icon'] = 'default'
+            if 'RSSI' in device_properties:
+                rssi = int(device_properties['RSSI'])
+                dictProperties['Strength'] = str(self.rssi_to_percentage(rssi))
             for prop in self.properties:
                 name = self.properties[prop]['value']
                 if name in device_properties:
@@ -522,6 +537,9 @@ class Bluez_Listener(dbus_bluez.Listener):
                 for prop in changed:
                     if prop in properties:
                         self.parent.listItems[path].setProperty(str(prop), str(changed[prop]))
+                if 'RSSI' in changed:
+                    rssi = int(changed['RSSI'])
+                    self.parent.listItems[path].setProperty('Strength', str(self.rssi_to_percentage(rssi)))
             else:
                 self.parent.discover_devices()
 
