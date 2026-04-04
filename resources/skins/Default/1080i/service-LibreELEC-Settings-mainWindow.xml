@@ -907,7 +907,7 @@
                             <width>20</width>
                             <height>20</height>
                             <aspectratio>keep</aspectratio>
-                            <visible>IntegerGreaterThan(ListItem.Property(Trusted), 0)</visible>
+                            <visible>Integer.IsGreater(ListItem.Property(Trusted), 0)</visible>
                             <texture>key.png</texture>
                         </control>
                     </itemlayout>
@@ -1101,7 +1101,7 @@
                             <width>20</width>
                             <height>20</height>
                             <aspectratio>keep</aspectratio>
-                            <visible>IntegerGreaterThan(ListItem.Property(Trusted), 0)</visible>
+                            <visible>Integer.IsGreater(ListItem.Property(Trusted), 0)</visible>
                             <texture>key.png</texture>
                         </control>
                     </focusedlayout>
